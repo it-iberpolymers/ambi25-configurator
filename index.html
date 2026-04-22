@@ -105,12 +105,72 @@ body{font-family:'Poppins',sans-serif;background:var(--off);color:var(--tx);min-
 .footer{text-align:center;font-size:10px;color:var(--mu);margin-top:24px;padding-bottom:24px;letter-spacing:1px}
 .ic{width:18px;height:18px;flex-shrink:0}
 
-.print-hdr{display:none;text-align:center;margin-bottom:20px;padding:20px;border-bottom:3px solid var(--gd)}
-.print-hdr h1{font-size:20px;font-weight:800}.print-hdr p{font-size:12px;color:var(--mu)}
-.print-cli{display:none;margin:16px 0;padding:12px 16px;border:1px solid var(--bd);border-radius:8px;font-size:13px}
-.print-cli b{color:var(--gd)}
 
-@media print{.hdr,.nav,.back,.cart-btn,.add-bar,.add-btn,.rm,.btn-row,.field,.footer,.no-print{display:none!important}body{background:#fff;font-size:11px}.ct{max-width:100%;padding:0}.print-hdr,.print-cli{display:block!important}}
+
+/* ═══ PROPOSAL PRINT TEMPLATE ═══ */
+.proposal-doc{display:none}
+
+@media print{
+  .hdr,.nav,.back,.cart-btn,.add-bar,.add-btn,.rm,.btn-row,.field,.footer,.no-print,.view-btn,.sum,.sec,.mode-row,.chip-row,.w-row,.tog-row,.color-row,.qty-w,.ct-title,.ct-sub,.gama-lbl,.prods,.add-info{display:none!important}
+  body{background:#fff;font-size:11pt;color:#333;font-family:'Poppins',sans-serif;margin:0;padding:0}
+  .ct{display:none!important}
+  .proposal-doc{display:block!important;max-width:100%;margin:0;padding:0}
+
+  .p-page{page-break-after:always;padding:40px 50px;min-height:100vh;position:relative}
+  .p-page:last-child{page-break-after:auto}
+
+  /* Cover */
+  .p-cover{display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;gap:20px}
+  .p-cover-logo{font-size:28px;font-weight:800;color:#006847;letter-spacing:2px}
+  .p-cover-logo span{color:#6EC43A}
+  .p-cover-sub{font-size:14px;color:#888;letter-spacing:4px;text-transform:uppercase}
+  .p-cover-line{width:80px;height:2px;background:#ccc;margin:20px auto}
+  .p-cover-title{font-size:22px;font-weight:300;color:#555}
+  .p-cover-ref{font-size:13px;font-weight:700;color:#333}
+
+  /* Header bar on each page */
+  .p-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid #006847}
+  .p-hdr-left{font-size:20px;font-weight:300;color:#bbb;line-height:1.2}
+  .p-hdr-right{text-align:right;font-size:8px;color:#aaa;letter-spacing:1px;text-transform:uppercase}
+
+  /* Footer on each page */
+  .p-footer{position:absolute;bottom:30px;left:50px;right:50px;display:flex;justify-content:space-between;align-items:flex-end;font-size:8px;color:#999;border-top:1px solid #eee;padding-top:8px}
+  .p-footer-logo{font-size:14px;font-weight:800;color:#006847;letter-spacing:1px}
+  .p-footer-logo span{color:#6EC43A}
+
+  /* Client box */
+  .p-client{margin:20px 0;padding:12px 18px;border:1px solid #ddd;border-radius:4px}
+  .p-client-label{font-size:9px;font-weight:700;color:#888;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+  .p-client-val{font-size:13px;font-weight:600;color:#333}
+  .p-row{display:flex;gap:20px;margin:16px 0}
+  .p-col{flex:1;padding:10px 14px;border:1px solid #eee;border-radius:4px}
+  .p-col-label{font-size:9px;font-weight:700;color:#888;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+  .p-col-val{font-size:12px;color:#333}
+
+  /* Section titles */
+  .p-h2{font-size:14px;font-weight:700;color:#333;margin:24px 0 8px}
+  .p-h3{font-size:12px;font-weight:700;color:#333;margin:16px 0 6px}
+  .p-text{font-size:10px;color:#555;line-height:1.6;margin-bottom:8px}
+
+  /* Equipment table */
+  .p-equip-banner{background:#c5d9a0;text-align:center;padding:8px;font-size:13px;font-weight:700;color:#555;margin:16px 0 0;border-radius:4px 4px 0 0}
+  .p-table{width:100%;border-collapse:collapse;font-size:10px;margin-bottom:16px}
+  .p-table th{padding:8px 12px;text-align:left;font-weight:700;font-size:9px;color:#888;border-bottom:1px solid #ddd}
+  .p-table th:nth-child(2),.p-table th:nth-child(3),.p-table th:nth-child(4){text-align:right}
+  .p-table td{padding:7px 12px;border-bottom:1px solid #f0f0f0;color:#555}
+  .p-table td:nth-child(2),.p-table td:nth-child(3),.p-table td:nth-child(4){text-align:right}
+  .p-table .p-cat td{font-weight:700;color:#555;padding-top:14px;border-bottom:1px solid #ddd}
+  .p-table .p-subtotal td{font-weight:700;border-top:2px solid #ddd;padding-top:10px;text-align:right}
+
+  /* Notes */
+  .p-notes{font-size:9px;color:#888;margin:16px 0;line-height:1.6}
+  .p-notes li{margin-bottom:4px}
+
+  /* Conditions */
+  .p-conditions{font-size:9px;color:#555;line-height:1.7}
+  .p-conditions p{margin-bottom:8px}
+}
+
 
 /* Image viewer modal */
 .img-modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.92);align-items:center;justify-content:center;flex-direction:column;padding:20px}
@@ -366,11 +426,9 @@ function renderCart(){
   document.getElementById('hdrT').textContent='Proposta Comercial';
   nav([{label:'Catálogo',click:"view='catalog';render()"},{label:'Proposta'}]);
   let h=`<div class="ct"><button class="back" onclick="view='catalog';render()">${ic('ic-back')} Catálogo</button>`;
-  h+=`<div class="print-hdr"><h1>PROPOSTA COMERCIAL</h1><p>AMBICONCEPT — Waste Solutions</p></div>`;
   h+=`<div class="no-print"><div class="field-row"><div class="field"><label>Cliente</label><input value="${proposal.client}" onchange="proposal.client=this.value"></div><div class="field"><label>Referência</label><input value="${proposal.ref}" placeholder="PCRU_2026_N..." onchange="proposal.ref=this.value"></div></div>`;
   h+=`<div class="field-row"><div class="field"><label>A/C Destinatário</label><input value="${proposal.contact}" onchange="proposal.contact=this.value"></div><div class="field"><label>Comercial</label><input value="${proposal.comercial}" onchange="proposal.comercial=this.value"></div></div>`;
   h+=`<div class="field-row"><div class="field"><label>Data</label><input type="date" value="${proposal.date}" onchange="proposal.date=this.value"></div></div></div>`;
-  h+=`<div class="print-cli"><b>Cliente:</b> ${proposal.client||'—'} &nbsp;|&nbsp; <b>Ref:</b> ${proposal.ref||'—'} &nbsp;|&nbsp; <b>A/C:</b> ${proposal.contact||'—'} &nbsp;|&nbsp; <b>Data:</b> ${proposal.date}</div>`;
 
   if(!cart.length){h+=`<div class="empty"><b>Proposta vazia</b>Volte ao catálogo para adicionar produtos</div>`}
   else{
@@ -392,11 +450,116 @@ function renderCart(){
 }
 
 function doPrint(){
-  // Show print elements, hide edit elements
-  document.querySelectorAll('.print-cli').forEach(e=>e.style.display='block');
-  document.querySelectorAll('.print-qty').forEach(e=>e.style.display='table-cell');
-  window.print();
-  setTimeout(()=>{document.querySelectorAll('.print-cli').forEach(e=>e.style.display='none');document.querySelectorAll('.print-qty').forEach(e=>e.style.display='none')},500);
+  // Build the full proposal document matching PDF template
+  let pdoc=document.getElementById('proposalDoc');
+  if(!pdoc){pdoc=document.createElement('div');pdoc.id='proposalDoc';pdoc.className='proposal-doc';document.body.appendChild(pdoc)}
+
+  const today=proposal.date||new Date().toISOString().slice(0,10);
+  const dateFormatted=today.split('-').reverse().join(' ');
+  const ref=proposal.ref||'PCRU_2026_N___';
+  const client=proposal.client||'[Cliente]';
+  const contact=proposal.contact||'[Destinatário]';
+  const comercial=proposal.comercial||'[Comercial]';
+
+  // Group cart by category
+  const groups={};cart.forEach(item=>{if(!groups[item.cat])groups[item.cat]=[];groups[item.cat].push(item)});
+  let subtotal=0;cart.forEach(i=>subtotal+=i.price*i.qty);
+
+  // Build table rows
+  let tableRows='';
+  Object.entries(groups).forEach(([cat,items])=>{
+    tableRows+=`<tr class="p-cat"><td colspan="4"><b>${cat}</b></td></tr>`;
+    tableRows+=`<tr><td></td><td><b>Valor Unitário</b></td><td><b>Quantidade</b></td><td><b>Valor Total</b></td></tr>`;
+    items.forEach(item=>{
+      const t=item.price*item.qty;
+      tableRows+=`<tr><td>${item.name}</td><td>${fmt(item.price)}</td><td style="text-align:center">${item.qty}</td><td>${fmt(t)}</td></tr>`;
+    });
+  });
+
+  const hdr=`<div class="p-hdr"><div class="p-hdr-left">PROPOSTA<br>COMERCIAL</div><div class="p-hdr-right">APRESENTAÇÃO DE PROPOSTA AMBICONCEPT<br><br>AMBICONCEPT.PT</div></div>`;
+  const ftr=`<div class="p-footer"><div>Para todos os assuntos relacionados com a presente proposta poderá contactar:<br>Telefone: +351 21 193 1020 | E-mail: comercial@ambiconcept.pt</div><div class="p-footer-logo"><span>AMBI</span>CONCEPT<br><span style="font-size:8px;font-weight:400;letter-spacing:3px;color:#888">WASTE SOLUTIONS</span></div></div>`;
+
+  pdoc.innerHTML=`
+    <!-- PAGE 1: COVER -->
+    <div class="p-page p-cover">
+      <div style="margin-top:30vh">
+        <div class="p-cover-logo"><span>⌬AMBI</span>CONCEPT</div>
+        <div class="p-cover-sub">Waste Solutions</div>
+        <div class="p-cover-line"></div>
+        <div class="p-cover-title">PROPOSTA COMERCIAL</div>
+        <div class="p-cover-ref">${ref} | ${dateFormatted}</div>
+      </div>
+    </div>
+
+    <!-- PAGE 2: CLIENT + DESCRIPTION -->
+    <div class="p-page">
+      ${hdr}
+      <div class="p-client"><div class="p-client-label">Cliente</div><div class="p-client-val">${client}</div></div>
+      <div class="p-row">
+        <div class="p-col"><div class="p-col-label">Proponente</div><div class="p-col-val">${comercial}</div></div>
+        <div class="p-col"><div class="p-col-label">Destinatário | Cliente</div><div class="p-col-val">A/C ${contact}</div></div>
+      </div>
+
+      <div class="p-h2">1. DESCRIÇÃO GERAL</div>
+      <div class="p-text">AMBICONCEPT, Tecnologias Ambientais, Lda. é uma empresa portuguesa, especializada no desenvolvimento, produção e comercialização de produtos e soluções destinados à gestão de resíduos.</div>
+      <div class="p-text">Somos uma equipa experiente no desenvolvimento e implantação de soluções, indo de encontro a novos desafios e exigências dos nossos Clientes.</div>
+      <div class="p-text">A nossa gama de produtos e serviços, tem como compromisso oferecer soluções inovadoras ao mercado, que permitam acompanhar a evolução tecnológica do meio urbano.</div>
+      <div class="p-text">Exigir o melhor de nós próprios e elevar os padrões de qualidade dos nossos produtos e serviços são a nossa prioridade, porque acreditamos que só assim conseguimos superar as expectativas dos nossos clientes.</div>
+
+      <div class="p-h3">1.1. PRAZO DE FORNECIMENTO</div>
+      <div class="p-text" style="padding-left:20px">Após a adjudicação, até 6 semanas.</div>
+
+      <div class="p-h3">1.2. CONDIÇÕES E PRAZOS DE PAGAMENTO</div>
+      <div class="p-text" style="padding-left:20px">Faturação contra entregas.<br>Prazo pagamento: 30 dias</div>
+      ${ftr}
+    </div>
+
+    <!-- PAGE 3: PROPOSAL TABLE -->
+    <div class="p-page">
+      ${hdr}
+      <div class="p-h3">1.3. CONDIÇÕES DE ENTREGA</div>
+      <div class="p-text" style="padding-left:20px">Serviço entrega: Nas instalações do município correspondente.</div>
+
+      <div class="p-h2">2. A NOSSA PROPOSTA COMERCIAL</div>
+
+      <div class="p-equip-banner">Equipamentos</div>
+      <table class="p-table">
+        <tbody>
+          ${tableRows}
+          <tr class="p-subtotal"><td colspan="3" style="text-align:right">Sub-total</td><td>${fmt(subtotal)}</td></tr>
+        </tbody>
+      </table>
+
+      <ul class="p-notes">
+        <li>O valor apresentado de transporte não contempla os meios de descarga do camião.</li>
+        <li>Esta proposta é válida por 30 dias, a contar da data de envio da mesma.</li>
+        <li>Aos preços acima indicados em euros, acresce o IVA à taxa legal em vigor.</li>
+      </ul>
+
+      <div class="p-h2">3. CONDIÇÕES GERAIS</div>
+      ${ftr}
+    </div>
+
+    <!-- PAGE 4: CONDITIONS -->
+    <div class="p-page">
+      ${hdr}
+      <div class="p-conditions">
+        <p>A adjudicação da presente proposta por parte do seu destinatário, implica a aceitação integral de todos os seus termos e condições, bem como das cláusulas seguintes:</p>
+        <p>a) As presentes condições gerais apresentadas pela Ambiconcept, Lda. são parte integrante do documento a elas anexo, salvo disposição escrita em contrário.</p>
+        <p>b) Objeto da Proposta: A presente proposta/contrato tem por objeto o fornecimento de produtos supra especificados por parte da AMBICONCEPT ao seu destinatário.</p>
+        <p>c) A Ambiconcept, Lda., na qualidade de fornecedora, é alheia à necessidade de levantamento de licenças municipais, licenças especiais de trabalho na via pública, ou outras do mesmo tipo, sendo esta uma responsabilidade única do Dono de Obra.</p>
+        <p>d) Cada item de transporte, incluídos na nossa proposta de fornecimento, contempla um período de uma hora para efeitos de operação de descarga. Sempre que, por motivos alheios à Ambiconcept, Lda. este período seja ultrapassado, na justa medida da respetiva incidência esses custos serão imputados ao Cliente.</p>
+        <p>e) O período de garantia por defeitos de fabrico, é de 24 meses seguintes à entrega dos equipamentos a contar da data da fatura. Estão excluídos pelas condições de garantia danos produzidos por sinistros, má utilização, atos de vandalismos, bem como intervenções resultantes do desgaste normal da utilização, nomeadamente: afinações, reparações ou substituições de consumíveis.</p>
+        <p>f) A assistência técnica dos equipamentos fornecidos pela Ambiconcept, Lda., é prestada por equipas técnicas especializadas da Ambiconcept, Lda. Apenas estas equipas estão autorizadas a efetuar reparações em garantia dos produtos/equipamentos, pelo que, quaisquer intervenções por parte de terceiros, determinarão a perda de garantia do respetivo produto/equipamento.</p>
+        <p>g) Quaisquer atrasos nos pagamentos das faturas da Ambiconcept, Lda., conferem-lhe o direito ao débito de juros de mora à taxa legal em vigor, a liquidar contra apresentação da respetiva nota de debito.</p>
+        <p>h) São reconhecidos, que os termos e cláusulas das condições gerais, designadamente os referentes a preços, prazos de produção e condições de pagamento e entrega, consubstanciam informação comercial sensível e relevante para a AMBICONCEPT, comprometendo-se a não utilizar e/ou divulgar a presente proposta/contrato, nem o respetivo teor, exceto se tal se afigurar necessário em sede de um eventual litígio judicial entre as partes.</p>
+      </div>
+      ${ftr}
+    </div>
+  `;
+
+  // Small delay then print
+  setTimeout(()=>window.print(),100);
 }
 
 function flashCart(){const b=document.getElementById('cartBtn');b.style.transform='scale(1.15)';setTimeout(()=>b.style.transform='',250)}
